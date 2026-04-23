@@ -1,49 +1,38 @@
-# SA1 Learning Situation (pt2) - Refactoring Triage Engine with Doubly Linked Lists
+# Documentação SA1 Parte 1 e Parte 2
 
-## Context
-In the context of health request management, the triage engine plays a crucial role in prioritizing patient requests based on urgency and requirements. This learning situation involves the refactoring of the existing triage engine to improve its performance and maintainability using data structures, specifically doubly linked lists.
+## Contexto
+Nesta documentação, apresentaremos o contexto relacionado ao projeto SA1, que visa gerir requisições de saúde de forma eficiente e organizada.
 
-## Architecture
-The refactored triage engine follows a modular architecture. The primary components include:
-1. **Data Model**: Defines patient request data and associated attributes.
-2. **Doubly Linked List**: A core data structure used for managing patient requests, allowing for efficient insertions, deletions, and traversals in both directions.
-3. **Triage Logic**: Implements the rules and algorithms used to evaluate and prioritize requests.
-4. **User Interface**: Provides a means for users to interact with the triage engine, submit requests, and view results.
+## Objetivos
+Os principais objetivos deste projeto são:
+1. Desenvolver um sistema que permita a gestão de requisições de saúde.
+2. Facilitar a comunicação entre os profissionais de saúde e os pacientes.
+3. Prover uma interface amigável para os usuários.
 
-## Implementation Details
-The implementation of the doubly linked list in the triage engine includes:
-- **Node Class**: Represents each element in the list, holding data and pointers to next and previous nodes.
-- **List Class**: Manages the overall functionality of the doubly linked list, including methods for insertion (at head, tail, or after a specific node), deletion (by value or position), and traversal (forward and backward).
-- **Integration**: The triage logic integrates with the linked list components to dynamically manage patient requests as they arrive and are processed.
+## Estruturas de Dados
+As estruturas de dados utilizadas incluem:
+- `Requisicao`
+  - `id`: Identificador único da requisição.
+  - `paciente`: Informações sobre o paciente.
+  - `status`: Estado da requisição (pendente, em andamento, finalizada).
+- `Saude`
+  - `id`: Identificador único da saúde.
+  - `descricao`: Descrição detalhada da saúde solicitada.
 
-### Key Functions
-- `insertAtHead(request)`: Inserts a new patient request at the beginning of the list.
-- `insertAtTail(request)`: Appends a new request at the end of the list.
-- `deleteRequest(requestId)`: Removes a request from the list by its ID.
-- `getNext(requestId)`: Retrieves the next request in line after the specified request.
+## Funções Obligatoriais
+As funções obrigatórias do sistema incluem:
+- `criarRequisicao(paciente, saude)`
+- `atualizarStatusRequisicao(id, novoStatus)`
+- `listarRequisicoes()`
 
-## Usage Examples
-### Inserting a New Request
-```python
-triage_engine.insertAtTail(new_request)
-```
+## Testes
+Os testes devem cobrir todos os casos de uso possíveis, incluindo:
+- Criação de requisições.
+- Atualização de status.
+- Listagem de requisições.
 
-### Deleting a Request
-```python
-triage_engine.deleteRequest(request_id)
-```
-
-### Traversing the List
-```python
-current_request = triage_engine.getNext(previous_request_id)
-```
-
-## Conclusion
-Refactoring the triage engine using a doubly linked list enhances the efficiency and flexibility of managing patient requests. This approach not only optimizes performance but also sets a foundation for future features such as dynamic prioritization based on real-time data.
-
-## Contact
-For further inquiries or contributions, please contact yaraSchneider at [Email Address].
-
----
-
-*This document was created on 2026-04-23 22:22:35 (UTC).*
+## Critérios de Avaliação
+Os critérios para avaliação do projeto são:
+- Eficiência do sistema ao lidar com grandes volumes de requisições.
+- Usabilidade da interface para os usuários finais.
+- Precisão dos dados apresentados nas requisições.
